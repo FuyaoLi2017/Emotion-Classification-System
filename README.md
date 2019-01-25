@@ -34,7 +34,9 @@ Because the data is so imbalance, so it is very easily overfitting. So we use so
 When using categorical cross entropy:
 - 1)	non-learning process:
 dropout rate: 0.7, SGD(lr=1e-4, momentum=0.9)
+
 <img src="pictures/cnn2.png" width="290"/><img src="pictures/cnn3.png" width="300"/>
+
 - 2)	overfitting:
 dropout rate: 0.3, RMSprop(lr=1e-3, rho=0.9)
 
@@ -113,7 +115,7 @@ The major parameter of random forest is n_estimators and max_depth. We first tra
 
 <img src="pictures/rf1.png" width="250"/><img src="pictures/rf2.png" width="250"/><img src="pictures/rf3.png" width="240"/>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Training data** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **validation data** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**test data**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Training data** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **validation data**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**test data**
 
 We can obtain the best training accuracy of 99.9% (depth is 24 and tree number 200), the best validation accuracy of 52.8%(depth 14 and tree number 100), the best test accuracy of 51.7%(depth 14 and tree number 150).
 - (2) Second step: find the best max_features and tune the minParent and min Leaf. We realized this with GridSearchCV. Base the step1’s result. We use different kinds of max_features parameter settings including ‘sqrt’, ‘log2’ and None. We found out the log2 has better performace compared with others. By applying ‘log2’ for max_feature, we enhanced the validation accuracy to 53.1% and test accuracy to 52%.
